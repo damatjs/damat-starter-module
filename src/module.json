@@ -1,0 +1,27 @@
+{
+  "name": "module-sample",
+  "version": "0.0.1",
+  "description": "A minimal, working Damat module skeleton — one model, service, config, and route to copy from when starting a new module.",
+  "author": { "name": "damatjs", "url": "https://github.com/damatjs" },
+  "registry": {
+    "namespace": "damatjs",
+    "license": "MIT",
+    "keywords": ["sample", "template", "skeleton", "starter"]
+  },
+  "env": [
+    {
+      "name": "MODULE_SAMPLE_GREETING",
+      "required": false,
+      "description": "Example optional credential, surfaced via the service. Delete when you replace this with real config.",
+      "example": "hello"
+    }
+  ],
+  "modules": [],
+  "paths": {
+    "entry": "./index.ts",
+    "models": "./models",
+    "migrations": "./migrations",
+    "workflows": "./workflows",
+    "types": "./types"
+  }
+}

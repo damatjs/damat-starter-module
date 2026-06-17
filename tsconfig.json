@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": ["bun"],
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*", "tests/**/*", "module.config.ts"]
+}

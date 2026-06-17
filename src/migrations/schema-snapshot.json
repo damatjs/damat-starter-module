@@ -1,0 +1,66 @@
+{
+  "moduleName": "module-sample",
+  "schema": "public",
+  "tables": [
+    {
+      "name": "items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "nullable": false,
+          "unique": false,
+          "array": false,
+          "autoincrement": false,
+          "default": "generate_id('itm')"
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "nullable": false,
+          "unique": false,
+          "array": false,
+          "autoincrement": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "primaryKey": false,
+          "nullable": true,
+          "unique": false,
+          "array": false,
+          "autoincrement": false
+        },
+        {
+          "name": "created_at",
+          "type": "date",
+          "nullable": false,
+          "default": "now()",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "name": "updated_at",
+          "type": "date",
+          "nullable": true,
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "name": "deleted_at",
+          "type": "date",
+          "nullable": true,
+          "primaryKey": false,
+          "unique": false
+        }
+      ],
+      "indexes": [],
+      "foreignKeys": [],
+      "constraints": []
+    }
+  ],
+  "enums": [],
+  "relationships": []
+}
