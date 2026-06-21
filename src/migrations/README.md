@@ -11,4 +11,4 @@ applied somewhere.
 `schema-snapshot.json`, writes a new SQL file, and updates the snapshot.
 Migrations are **append-only** once published — to change the schema, add a new
 migration rather than editing an old one. A backend applies them with
-`bun damat-orm migrate:up`.
+`damat-orm migrate:up` (wrapped as `bun run db:migrate` in an app).

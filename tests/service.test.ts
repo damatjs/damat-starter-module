@@ -17,20 +17,19 @@ describe.skipIf(!process.env.DATABASE_URL)("module-sample service", () => {
   });
 
   afterAll(async () => {
-    if (itemId) await booted.service.item.delete({ where: { id: itemId } });
+    if (itemId) await booted.service.items.delete({ where: { id: itemId } });
     await booted?.teardown();
   });
 
-  test("creates and lists an item", async () => {
-    const created = (await booted.service.createItem({
-      name: "first",
-      note: "hi",
-    })) as { id: string; name: string };
+  test("creates and lists an item via bare CRUD", async () => {
+    const created = await booted.service.items.create({
+      data: { name: "first", note: "hi" },
+    });
     itemId = created.id;
     expect(created.id).toStartWith("itm");
     expect(created.name).toBe("first");
 
-    const items = await booted.service.listItems();
+    const items = await booted.service.items.findMany({});
     expect(items.length).toBeGreaterThan(0);
   });
 });

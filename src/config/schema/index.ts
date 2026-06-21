@@ -1,4 +1,4 @@
-import { z } from "@damatjs/module";
+import { z } from "@damatjs/deps/zod";
 
 // Credentials schema. The loader (config/load.ts) reads env into this shape and
 // it is validated at boot. Replace `greeting` with your module's real config.

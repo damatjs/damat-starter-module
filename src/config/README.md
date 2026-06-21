@@ -10,8 +10,9 @@ environment.
 
 **How it works.** At boot the framework calls `load(process.env)` and validates
 the result against `schema`; invalid config fails fast. The validated value is
-then available as `this.credentials` inside the service — e.g. `service.ts`
-reads `this.credentials?.greeting`.
+then available as `this.credentials` inside the service (and is what a
+third-party integration in `../lib/` would read — e.g.
+`this.credentials?.greeting`).
 
 **Declare every env var you read in [`../module.json#env`](../module.json)** —
 that list drives `.env.example` sync when the module is installed. This skeleton

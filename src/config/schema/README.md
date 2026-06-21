@@ -9,7 +9,7 @@ variables; the framework validates `load(process.env)` against `schema` at boot,
 and the result becomes `this.credentials` inside the service.
 
 ```ts
-import { z } from "@damatjs/module";
+import { z } from "@damatjs/deps/zod";
 
 export const schema = z.object({
   greeting: z.string().default("hello"),

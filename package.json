@@ -1,5 +1,5 @@
 {
-  "name": "@modules/module-sample",
+  "name": "@damatjs/module-sample",
   "version": "0.0.1",
   "type": "module",
   "private": true,
@@ -15,12 +15,15 @@
     "bun": ">=1.1.0"
   },
   "dependencies": {
-    "@damatjs/module": "^0.1.1",
-    "@damatjs/services": "^0.1.1",
-    "@damatjs/deps": "^0.1.1"
+    "@damatjs/module": "latest",
+    "@damatjs/services": "latest",
+    "@damatjs/framework": "latest",
+    "@damatjs/orm-model": "latest",
+    "@damatjs/workflow-engine": "latest",
+    "@damatjs/deps": "latest"
   },
   "devDependencies": {
-    "@damatjs/damat-cli": "^0.1.1",
+    "@damatjs/damat-cli": "latest",
     "@types/bun": "1.3.9",
     "typescript": "^5.7.2"
   }
