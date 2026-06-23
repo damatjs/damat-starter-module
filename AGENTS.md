@@ -92,11 +92,27 @@ a parallel route/step/workflow that competes with the generated one — extend i
   - Only a **step** touches the service, via the typed `getModule("<name>")`.
   - **Business logic + orchestration live in steps/workflows** — never in a route,
     never in the service.
-- **The service is data + integrations ONLY** — the generated CRUD plus
-  third-party calls (do/reverse pairs). No business logic, no orchestration.
-- **No big files.** Split by concern: one model per file, one integration per
-  `src/lib/<provider>.ts`, one helper-group per `src/utils/<concern>.ts`. The
-  moment a file holds more than one idea, split it.
+- **Never re-wrap what the service already gives you.** `ModuleService({ models })`
+  already exposes the full per-model CRUD surface — `create`, `createMany`, `upsert`,
+  `upsertMany`, `find`, `findById`, `findOne`, `findMany`, `update`, `updateOne`,
+  `delete` / `softDelete` (with `cascade`), `restore`, `count`, `exists`. NEVER add a
+  service method that just forwards to one of these — no `getUser` that calls `find`,
+  no `listUsers` that calls `findMany`. A step calls
+  `getModule("<name>").<model>.find(...)` (etc.) **directly**. The service gains
+  **only new, model-specific** logic the generated CRUD can't do — e.g. an `ai`
+  model's provider calls: the provider catalog + request/parse detail lives in
+  `src/lib/<provider>.ts`, and the service method just selects the provider and
+  invokes it (then may persist via the accessor). Litmus test: if a method body is a
+  single CRUD call, delete it and call the accessor from the step.
+- **The service is data + new integrations ONLY** — the generated CRUD plus
+  third-party calls (do/reverse pairs). No business logic, no orchestration, no CRUD
+  passthroughs.
+- **No file over 100 lines. Readability is the highest priority.** Split by concern:
+  one model per file, one integration per `src/lib/<provider>.ts`, one helper-group
+  per `src/utils/<concern>.ts`. The moment a file holds more than one idea — or
+  crosses ~100 lines — split it; extract a long function's sub-steps into sibling
+  files/folders so each piece reads on its own. A long file is a refactor signal,
+  never a "comment it better" one.
 - **Import from the real packages** (see below), never the `@damatjs/module`
   umbrella.
 - **Stay a blade:** no cross-module links, no importing another module.
@@ -152,9 +168,10 @@ Register every model in `src/service.ts`'s `models` map.
 
 ### 2. Service (`src/service.ts`)
 `ModuleService({ models, credentialsSchema })` auto-generates CRUD for each model
-(keyed by its map name): `create` / `createMany` / `find` / `findMany` / `update`
-/ `delete` / `softDelete` / `restore` / `count` / `exists`, plus
-`this.transaction(cb)`.
+(keyed by its map name): `create` / `createMany` / `upsert` / `upsertMany` /
+`find` / `findById` / `findOne` / `findMany` / `update` / `updateOne` / `delete`
+(optional `cascade`) / `softDelete` (optional `cascade`) / `restore` / `count` /
+`exists`, plus `this.transaction(cb)`.
 
 **Pass models as an ARRAY via `collectModels`** — it derives each accessor key
 from the model's TABLE NAME (camelCased, no pluralizing), so you never hand-write
@@ -162,11 +179,14 @@ a redundant key: `model("items")` → `service.items`, `model("ai_sessions")` �
 `service.aiSessions`. The codegen scaffolder wires generated steps to
 `service.<camelTable>`, so the key (= table name) is the single source of truth.
 
-The service is the **data + integration layer only**: bare CRUD plus any
-third-party integration (Stripe, etc.) — the SDK import and its calls live here
-(in `src/lib/<integration>.ts`), as a do/reverse pair so steps can compensate.
-Business logic does **not** live here; it lives in steps/workflows
-(route → workflow → step → service).
+The service is the **data + new-integration layer only**. The CRUD above is
+already generated — **never add a method that re-exports it** (no `getWidget`
+wrapping `find`, no `listWidgets` wrapping `findMany`); steps call
+`service.<model>.find(...)` directly. The service gains **only new, model-specific**
+methods the CRUD can't do — third-party calls where the SDK import + provider
+detail live in `src/lib/<provider>.ts` and the method just selects and invokes
+the provider (do/reverse pairs so steps can compensate). Business logic does
+**not** live here; it lives in steps/workflows (route → workflow → step → service).
 
 ```ts
 import { ModuleService } from "@damatjs/services";
@@ -177,8 +197,16 @@ import { Widget } from "./models/widget";
 export const models = collectModels([Widget]);   // -> { widgets: Widget }
 
 export class WidgetService extends ModuleService({ models, credentialsSchema: schema }) {
-  // Third-party integrations only — split each into ./lib/<integration>.ts:
+  // NO CRUD passthroughs — `service.widgets.find(...)` already exists; call it
+  // from steps. Add ONLY new model-specific integrations, each in ./lib/<x>.ts:
   //   import { charge, refund } from "./lib/stripe";
+  //
+  // e.g. an `ai` model: providers + request/parse detail live in ./lib/<provider>.ts;
+  //   the method just picks the provider and calls it (then persists via the accessor):
+  //   async complete(input) {
+  //     const provider = pickProvider(this.credentials);   // ./lib/providers
+  //     return provider.complete(input);                    // ./lib/<provider>.ts
+  //   }
 }
 ```
 
@@ -334,8 +362,10 @@ app installs it with `damat module add <ref | path | git-url>`.
   `RouteHandler`/`RouteValidator` from `@damatjs/framework/router`, and `z` from
   `@damatjs/deps/zod`.
 - `ModuleService({ models, credentialsSchema })` — object args, not positional;
-  build `models` with `collectModels([...])` (keys derived from table names);
-  keep the service CRUD + integrations only.
+  build `models` with `collectModels([...])` (keys derived from table names). Keep
+  the service to the generated CRUD + **new** integrations only — never re-export a
+  CRUD method (call `service.<model>.find(...)` from the step instead).
 - Relations reference the **target table name**, and only your own tables.
 - For the full API, read the package READMEs (in `node_modules/@damatjs/…`).
-- Keep files small and readable — split, don't pile into one big file.
+- **No file over 100 lines; readability is the highest priority.** Split by concern,
+  subdivide long functions into sibling files/folders — never pile into one big file.

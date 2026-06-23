@@ -5,15 +5,12 @@
     "": {
       "name": "@modules/module-sample",
       "dependencies": {
-        "@damatjs/deps": "latest",
-        "@damatjs/framework": "latest",
-        "@damatjs/module": "latest",
-        "@damatjs/orm-model": "latest",
-        "@damatjs/services": "latest",
-        "@damatjs/workflow-engine": "latest",
+        "@damatjs/deps": "^0.1.1",
+        "@damatjs/module": "^0.1.1",
+        "@damatjs/services": "^0.1.1",
       },
       "devDependencies": {
-        "@damatjs/damat-cli": "latest",
+        "@damatjs/damat-cli": "^0.1.1",
         "@types/bun": "1.3.9",
         "typescript": "^5.7.2",
       },
@@ -22,19 +19,17 @@
   "packages": {
     "@damatjs/cli": ["@damatjs/cli@0.1.1", "", { "dependencies": { "@damatjs/logger": "*", "cac": "^6.7.14", "dotenv": "^17.3.1" } }, "sha512-ijXoKAn0UZz9lEjZt8TCTg3URCQNOOU5WfAn/ixSSXJw89NKD4bvy1O9s1FilUN1jjDrAfO8jWiPQHJMFnIRCQ=="],
 
-    "@damatjs/damat-cli": ["@damatjs/damat-cli@0.1.3", "", { "dependencies": { "@damatjs/cli": "*", "@damatjs/framework": "*", "@damatjs/load-env": "*", "@damatjs/logger": "*", "@damatjs/module": "*" }, "bin": { "damat": "dist/cli.js" } }, "sha512-AhgUQ0JNK3sZocaCjAFZEUCpE2QNllIOzWl7AAD98jDuFr3Z64P6aw8GWzHPhZP2bgKS1syG7ZAGX3VIO4AAkw=="],
+    "@damatjs/damat-cli": ["@damatjs/damat-cli@0.1.1", "", { "dependencies": { "@damatjs/cli": "*", "@damatjs/framework": "*", "@damatjs/load-env": "*", "@damatjs/logger": "*", "@damatjs/module": "*" }, "bin": { "damat": "dist/cli.js" } }, "sha512-HVtKBGtCAva7qIvRJ9PQdppMqq5sL5TfA+4nznkvYffFtSuX5y8dAa5S9EevClVgxNIcz/Q2jTvip4qu0cqJdA=="],
 
-    "@damatjs/deps": ["@damatjs/deps@0.1.3", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-TQZQx18t9lJnI/QngiNB0w+Ew6FSDtC/k/3WfaAYHLeTHTF0+LJTFMWVO9R/M4yHiQjAqjbybik2OjULLk+OVQ=="],
+    "@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
 
-    "@damatjs/framework": ["@damatjs/framework@0.1.3", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/link": "*", "@damatjs/logger": "*", "@damatjs/orm-connector": "*", "@damatjs/orm-type": "*", "@damatjs/redis": "*", "@damatjs/services": "*", "@damatjs/types": "*", "@damatjs/workflow-engine": "*", "@hono/node-server": "^1.13.7" } }, "sha512-XQxy15Ejq08g2rW79gabCEoYTFIjC0KBSvm3jMIs8woGF8pNqDG+CGtDtj/5qSdhIB11yWLyE8qTlP4MF7V6Gg=="],
-
-    "@damatjs/link": ["@damatjs/link@0.1.3", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/logger": "*", "@damatjs/orm-model": "*", "@damatjs/orm-pg": "*", "@damatjs/orm-type": "*", "@damatjs/services": "*" } }, "sha512-0bZqxxHIlwDBSaiqcafIQt0p+Y9kCoaIV/zvtBC7Cy6FJ9trJahvKhl8vr9FYVDURuUcFAzqBh33WY69wPosqg=="],
+    "@damatjs/framework": ["@damatjs/framework@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/logger": "*", "@damatjs/orm-connector": "*", "@damatjs/orm-type": "*", "@damatjs/redis": "*", "@damatjs/services": "*", "@damatjs/types": "*", "@damatjs/workflow-engine": "*", "@hono/node-server": "^1.13.7" } }, "sha512-IbudUKXzScHoPUEwCGcTLY37ywdkFS9MTzd2h74to8WLTvL2ZhiYqSY1AxlGhEeUoiCF8AcztNzMN3/8E+3Kcg=="],
 
     "@damatjs/load-env": ["@damatjs/load-env@0.1.1", "", {}, "sha512-GCBjkuJbOQ5dcJy+7LJjZ7j6xhdJlzlJXcicaQLxkNw2mAlvhB0Fl+LFPZ4wVj1GQREPMfPbYtVDjk/8WZOEjg=="],
 
     "@damatjs/logger": ["@damatjs/logger@0.1.1", "", {}, "sha512-Zj6w8MOHyS3ltZFFEk5Z1UdPpeCMEJ0lAQBMDoALoq0CFWEHJ/dLG9dWtSQInvo++arMQYeOH5xGAfkPMHAi0A=="],
 
-    "@damatjs/module": ["@damatjs/module@0.1.3", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/framework": "*", "@damatjs/logger": "*", "@damatjs/orm-codegen": "*", "@damatjs/orm-connector": "*", "@damatjs/orm-migration": "*", "@damatjs/orm-model": "*", "@damatjs/orm-type": "*", "@damatjs/services": "*", "@damatjs/workflow-engine": "*" } }, "sha512-Py5hUO57ryx9vwETA3bhDUjWjnz3I15oAfmB7Jp7cqJ0h/T9Tf2LpIUPkI9JPmCo4HtyrfxxAE/OYG3IuJBYCw=="],
+    "@damatjs/module": ["@damatjs/module@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/framework": "*", "@damatjs/logger": "*", "@damatjs/orm-codegen": "*", "@damatjs/orm-connector": "*", "@damatjs/orm-migration": "*", "@damatjs/orm-model": "*", "@damatjs/orm-type": "*", "@damatjs/services": "*", "@damatjs/workflow-engine": "*" } }, "sha512-Z8IcAs0Didvysiw8bF2SHbcfU0k19tSJEUXDRAScuunlH3t6FgE37AtCpidU1kHpzTSYC4NfrPFQ287re1SfrQ=="],
 
     "@damatjs/orm-codegen": ["@damatjs/orm-codegen@1.0.1", "", { "dependencies": { "@damatjs/orm-model": "*", "@damatjs/orm-type": "*" }, "peerDependencies": { "@damatjs/logger": "*" } }, "sha512-I+hTiUOVowjslWZhnLOsRhDMiczWSm7q7YXnpxfIOkM34udzUDHmnmesepkziJAG98aq2RyrkrS4X0B+fG72zg=="],
 
@@ -44,7 +39,7 @@
 
     "@damatjs/orm-migration": ["@damatjs/orm-migration@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/logger": "*", "@damatjs/orm-model": "*", "@damatjs/orm-processor": "*", "@damatjs/orm-type": "*", "@damatjs/types": "*" } }, "sha512-jmY8sQlCi+eDJqVmDtIjHfm3HjaBb0As8avjQUbQAEYz4guRennoTWrX4ZpUTi8t7Fy+ULkq6CEuLthN8kMMLw=="],
 
-    "@damatjs/orm-model": ["@damatjs/orm-model@0.1.3", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-5vGoIRpXrHVzzyjrILlrDcCU9vvHcdxOufdnvkwUU4LGqSa7mPR1D8X0IpmrUg9C1NUEOJM111MJV30elrRu9Q=="],
+    "@damatjs/orm-model": ["@damatjs/orm-model@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-Kkkw4dGrkJKQdcQDtGHLHCaZFDmlfUOI9r5zpvznNN63a6PK1cPEBfHcS1i2M3hPedgWpdY+ysGKKp4KGsG9SQ=="],
 
     "@damatjs/orm-pg": ["@damatjs/orm-pg@0.1.1", "", { "dependencies": { "@damatjs/logger": "*", "@damatjs/orm-core": "*", "@damatjs/orm-model": "*", "@damatjs/orm-type": "*", "@damatjs/types": "*" } }, "sha512-izRpCFree8e0ooLK1N5UFQRG0FkbHaUPNk2untwJE502OjyT/u6UN614fWyK0IXl8/1UXHVMGbn/fYk5IuhEww=="],
 
@@ -54,11 +49,11 @@
 
     "@damatjs/redis": ["@damatjs/redis@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/logger": "*" } }, "sha512-JclrMv9GuyjLH2Ywm3m8UF6Jr+8G0XmlqI79eIqOE7568pLlpLx3KucfZTqsEIQoqy7icye3e7XNzPx+fk4tdw=="],
 
-    "@damatjs/services": ["@damatjs/services@0.1.3", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/logger": "*", "@damatjs/orm-connector": "*", "@damatjs/orm-model": "*", "@damatjs/orm-pg": "*", "@damatjs/orm-type": "*", "@damatjs/types": "*" } }, "sha512-WWCoYFe8w3LAy5TTAT/5kp8xpvd2gqgYRz3EHtNKzgLZXyKHEo4FwTftRtvSKjoOtuOe+sSTmvPY98pJiteIhw=="],
+    "@damatjs/services": ["@damatjs/services@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/logger": "*", "@damatjs/orm-connector": "*", "@damatjs/orm-model": "*", "@damatjs/orm-pg": "*", "@damatjs/orm-type": "*", "@damatjs/types": "*" } }, "sha512-XPaWmOHprOEUaatpg34NjhSHGJCGftkI9DhUedq2Z+5xsQPJN45cKVtBr0Trjs/bS1Tcr8eprsXWXp75DWPa8w=="],
 
     "@damatjs/types": ["@damatjs/types@0.1.1", "", {}, "sha512-R7SkCAvlze0X33uWtA97xZHOu0kTpuo21vOLp+vmwd4TBRkpL/o3dD/c1a8oLFv8/u6xJTxl3e7oVPs/cUGLsQ=="],
 
-    "@damatjs/workflow-engine": ["@damatjs/workflow-engine@0.1.3", "", { "dependencies": { "@damatjs/logger": "*", "@damatjs/redis": "*", "effect": "^3.12.0", "nanoid": "^5.1.6" } }, "sha512-ic3P6QhpfOhgnAkrZmrSVg5nfPCmyFy7hdz1NnHBFxnRkgv1HoHIyhNUK8/D2nYzBCWvIsiBZJnvTGyLqcFJyg=="],
+    "@damatjs/workflow-engine": ["@damatjs/workflow-engine@0.1.1", "", { "dependencies": { "@damatjs/logger": "*", "@damatjs/redis": "*", "effect": "^3.12.0", "nanoid": "^5.1.6" } }, "sha512-y3wjfZztw4jTZUVBmllxd0Aeb63b5M8izdOK367vMVymgF9Xjvn2MmBkR/PIkKrUidcBTEn0o8k3B5Joxc/LVg=="],
 
     "@hono/node-server": ["@hono/node-server@1.19.14", "", { "peerDependencies": { "hono": "^4" } }, "sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw=="],
 
@@ -137,31 +132,5 @@
     "xtend": ["xtend@4.0.2", "", {}, "sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ=="],
 
     "zod": ["zod@4.3.6", "", {}, "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="],
-
-    "@damatjs/orm-codegen/@damatjs/orm-model": ["@damatjs/orm-model@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-Kkkw4dGrkJKQdcQDtGHLHCaZFDmlfUOI9r5zpvznNN63a6PK1cPEBfHcS1i2M3hPedgWpdY+ysGKKp4KGsG9SQ=="],
-
-    "@damatjs/orm-connector/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/orm-core/@damatjs/orm-model": ["@damatjs/orm-model@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-Kkkw4dGrkJKQdcQDtGHLHCaZFDmlfUOI9r5zpvznNN63a6PK1cPEBfHcS1i2M3hPedgWpdY+ysGKKp4KGsG9SQ=="],
-
-    "@damatjs/orm-migration/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/orm-migration/@damatjs/orm-model": ["@damatjs/orm-model@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-Kkkw4dGrkJKQdcQDtGHLHCaZFDmlfUOI9r5zpvznNN63a6PK1cPEBfHcS1i2M3hPedgWpdY+ysGKKp4KGsG9SQ=="],
-
-    "@damatjs/orm-pg/@damatjs/orm-model": ["@damatjs/orm-model@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-Kkkw4dGrkJKQdcQDtGHLHCaZFDmlfUOI9r5zpvznNN63a6PK1cPEBfHcS1i2M3hPedgWpdY+ysGKKp4KGsG9SQ=="],
-
-    "@damatjs/orm-processor/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/orm-processor/@damatjs/orm-model": ["@damatjs/orm-model@0.1.1", "", { "dependencies": { "@damatjs/deps": "*", "@damatjs/orm-type": "*" } }, "sha512-Kkkw4dGrkJKQdcQDtGHLHCaZFDmlfUOI9r5zpvznNN63a6PK1cPEBfHcS1i2M3hPedgWpdY+ysGKKp4KGsG9SQ=="],
-
-    "@damatjs/orm-type/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/redis/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/orm-codegen/@damatjs/orm-model/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/orm-core/@damatjs/orm-model/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
-
-    "@damatjs/orm-pg/@damatjs/orm-model/@damatjs/deps": ["@damatjs/deps@0.1.1", "", { "dependencies": { "@hono/node-server": "^1.13.7", "effect": "^3.19.18", "hono": "^4.12.0", "ioredis": "^5.9.3", "nanoid": "^5.1.6", "pg": "^8.21.0", "uuid": "^13.0.0", "zod": "4.3.6" } }, "sha512-EN442760K+KQSGl6sv2/FEGDh2jXM/kqTDG3S0B7nDraKhz8iCbNcqhULQ2YV69xNKNuZ+sCj0K/Qz8cgG9r+Q=="],
   }
 }

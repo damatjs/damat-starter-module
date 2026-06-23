@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "lib": ["ES2023"],
-    "types": ["bun"],
+    "lib": [
+      "ES2023"
+    ],
+    "types": [
+      "bun"
+    ],
     "target": "ES2023",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -13,7 +17,20 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@module-sample/*": [
+        "./src/*"
+      ],
+      "@workflows/*": [
+        "./src/workflows/*"
+      ]
+    }
   },
-  "include": ["src/**/*", "tests/**/*", "module.config.ts"]
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "module.config.ts"
+  ]
 }
